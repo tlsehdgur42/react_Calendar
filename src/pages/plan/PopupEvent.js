@@ -5,10 +5,14 @@ import axios from 'axios';
 const PopupEvent = ({ clickedDate, onClose }) => {
   const [title, setTitle] = useState('');
   const [color, setColor] = useState('#ffffff');
+  const [date, setDate] = useState('');
   const [summary, setSummary] = useState('');
   const [startingHour, setStartingHour] = useState('');
   const [endingHour, setEndingHour] = useState('');
 
+
+  // 문제점 : 값을 보낼 때 각각의 타입이 제각각이다. 그래서 보낼 때 타입을 변경해서 보내던가 아니면 백엔드에서 값을 받을 때 타입을 맞추던가
+  // 백엔드에서 바꿔봤는데 token `JsonToken.START_OBJECT 이런 에러가 나옴 ㅅㅂ..
   const handleSave = () => {
     const eventData = {
       title: title,
